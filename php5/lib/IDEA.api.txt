@@ -1,0 +1,25 @@
+$naverMileageConfig = new NaverMileageConfig(ENV, API_ID, SECRET);
+
+$accumPopupParams = array("doneUrl" => "", "maxUseAmount"=>"", "reqTxId"=>"");
+
+NaverMileageAPIUtil::getAccumPopupURL($naverMileageConfig, $accumPopupParams);
+
+
+$paymentParams = array("format"=>"", "reqTxId"=>"", "orderNo"=>"", "orderProductName"=>"", "qty"=>"", "orderAmount"=>"", "amount"=>"", "mileageUseAmount"=>"", "cashUseAmount"=>"", "isMember"=>"", "isConfirmed"=>""); 
+$itemsParam = array( 
+			array("itemId"=>"", "productName"=>"", "UnitPrice"=>"", "qty"=>"", "TotalPrice"=>"", "category"=>""),
+			array("itemId"=>"", "productName"=>"", "UnitPrice"=>"", "qty"=>"", "TotalPrice"=>"", "category"=>"")
+		);
+
+$paymentResult = NaverMileageAPI::payment(naverMileageConfig, $paymentParams, $itemsParam);
+
+$paymentResult = array(
+	"resultCode" => "",
+	"resultMessage" => "",
+	"txId" => "",
+	"baseAccumRate" => "",
+	"addAccumRate" => "",
+	"baseAccumAmount" => "",
+	"addAccumAmount" => ""
+);
+
